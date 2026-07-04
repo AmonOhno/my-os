@@ -1,0 +1,197 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 画面共通レイアウト: 下部タブ + FAB のぶん余白を確保 */
+.screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: calc(var(--space-unit) * 5);
+  padding-top: calc(env(safe-area-inset-top) + var(--space-unit) * 5);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96px);
+}
+
+.screen-title {
+  font: var(--text-title);
+  margin: 0 0 calc(var(--space-unit) * 4);
+}
+
+.caption {
+  font: var(--text-caption);
+  color: var(--color-ink-muted);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: calc(var(--space-unit) * 4);
+}
+
+/* 下部タブバー */
+.tab-bar {
+  position: fixed;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-line);
+  padding: calc(var(--space-unit) * 3) 0
+    calc(env(safe-area-inset-bottom) + var(--space-unit) * 3);
+}
+
+.tab-bar a {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-ink-muted);
+  font: var(--text-caption);
+}
+
+.tab-bar a.active {
+  color: var(--color-accent);
+}
+
+/* FAB */
+.fab {
+  position: fixed;
+  right: calc(var(--space-unit) * 5);
+  bottom: calc(env(safe-area-inset-bottom) + 72px);
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+}
+
+/* 記録シート */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(58 52 48 / 40%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-bg);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  padding: calc(var(--space-unit) * 5);
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--space-unit) * 5);
+  display: grid;
+  gap: calc(var(--space-unit) * 3);
+}
+
+.segment {
+  display: flex;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.segment-item {
+  min-height: 44px;
+  flex: 1;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-chip);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: var(--text-caption);
+  cursor: pointer;
+}
+
+.segment-item.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.chip-select {
+  min-height: 44px;
+  padding: 0 calc(var(--space-unit) * 4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-chip);
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  font: var(--text-caption);
+  cursor: pointer;
+}
+
+.chip-select.active {
+  border-color: var(--chip-color);
+  color: var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 14%, var(--color-surface));
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: calc(var(--radius-card) / 2);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: var(--text-body);
+  padding: calc(var(--space-unit) * 3);
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.save-button {
+  min-height: 48px;
+  border: none;
+  border-radius: calc(var(--radius-card) / 2);
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font: var(--text-body);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* 領域チップ: 淡い背景 + 濃い文字（ベタ塗り禁止） */
+.domain-chip {
+  display: inline-block;
+  padding: 2px calc(var(--space-unit) * 2);
+  border-radius: var(--radius-chip);
+  font: var(--text-caption);
+  color: var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 14%, var(--color-surface));
+}

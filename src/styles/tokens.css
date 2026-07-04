@@ -1,0 +1,33 @@
+/* デザイントークン — docs/ui/specification.md §2 が正。色や余白のハードコード禁止 */
+:root {
+  /* base */
+  --color-bg: #faf6ef;
+  --color-surface: #ffffff;
+  --color-surface-warm: #f6efe3;
+  --color-ink: #3a3430;
+  --color-ink-muted: #9a9089;
+  --color-line: #e9e1d4;
+  --color-accent: #bc6c4a;
+
+  /* domain colors */
+  --domain-health: #7e9070;
+  --domain-career: #a86f3f;
+  --domain-learning: #6e86a0;
+  --domain-family: #c08a8a;
+  --domain-finance: #8a9b8e;
+  --domain-projects: #8d7aa5;
+  --domain-mental: #c97b5a;
+  --domain-travel: #5f8a8b;
+
+  /* shape / spacing */
+  --radius-card: 16px;
+  --radius-chip: 999px;
+  --space-unit: 4px;
+  --shadow-card: 0 1px 4px rgb(58 52 48 / 6%);
+
+  /* type */
+  --font-body: -apple-system, 'Hiragino Sans', system-ui, sans-serif;
+  --text-title: 600 22px/1.4 var(--font-body);
+  --text-body: 400 15px/1.7 var(--font-body);
+  --text-caption: 400 12px/1.5 var(--font-body);
+}
