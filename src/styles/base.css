@@ -88,6 +88,119 @@ body {
   cursor: pointer;
 }
 
+/* きょう画面 */
+.today-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.icon-link {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-ink-muted);
+  font-size: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--color-accent);
+  font: var(--text-body);
+}
+
+.section-heading {
+  margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2);
+}
+
+/* 領域の状態カード（横スクロール） */
+.status-row {
+  display: flex;
+  gap: calc(var(--space-unit) * 3);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  margin: 0 calc(var(--space-unit) * -5);
+  padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 5);
+  -webkit-overflow-scrolling: touch;
+}
+
+.status-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 200px;
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 4);
+  font: var(--text-body);
+  color: var(--color-ink);
+}
+
+.status-domain {
+  font: var(--text-caption);
+  font-weight: 600;
+  color: var(--chip-color);
+}
+
+.status-main {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* タイムライン */
+.entry-list {
+  display: grid;
+  gap: calc(var(--space-unit) * 4);
+}
+
+.date-heading {
+  margin: 0 0 calc(var(--space-unit) * 2);
+}
+
+.entry-group {
+  display: grid;
+  gap: calc(var(--space-unit) * 3);
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-unit) * 2);
+  margin: 0;
+}
+
+.entry-body {
+  margin: calc(var(--space-unit) * 2) 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.entry-event {
+  font-weight: 600;
+}
+
+/* 設定 */
+.settings-section {
+  display: grid;
+  gap: calc(var(--space-unit) * 3);
+  margin-bottom: calc(var(--space-unit) * 4);
+}
+
 /* 記録シート */
 .sheet-backdrop {
   position: fixed;
