@@ -69,3 +69,10 @@ Finance 領域ビュー用のカテゴリ別内訳（支出のみ・金額降順
 ## 6. CORS についての注意
 
 MyOS は `*.github.io` から fetch するため、既存アプリのAPI側で当該オリジンを CORS 許可する必要がある（自分のアプリなのでヘッダを1つ足すだけ）。許可できない場合の代替はディープリンク運用のみとし、プロキシサーバーは立てない（0円原則）。
+
+### iOS（Capacitor）の場合
+
+iOS の WebView オリジンは `capacitor://localhost` で、API 側の許可リスト（`MYOS_ALLOWED_ORIGINS`）に含まれないため、そのままでは CORS で失敗する。MyOS では `capacitor.config.ts` で `CapacitorHttp` を有効化し、`fetch` をネイティブHTTPに差し替えて CORS 自体を回避する（API 側の設定変更は不要）。
+
+- 設定変更後は `npx cap sync ios` で iOS プロジェクトに反映する
+- 制約: ネイティブHTTP経由では `AbortController` が効かないため、iOS では 5 秒タイムアウトが働かない（失敗時の表示は同じ）
