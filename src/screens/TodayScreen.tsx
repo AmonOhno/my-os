@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useEntriesStore } from '../stores/entriesStore';
+import { useFinanceStore } from '../stores/financeStore';
 import { StatusCards } from '../components/StatusCards';
 import { EntryList } from '../components/EntryList';
 
@@ -17,9 +18,11 @@ function formatDate(d: Date): string {
 
 export function TodayScreen() {
   const { entries, loadEntries } = useEntriesStore();
+  const { yesterdayExpense, loadYesterdayExpense } = useFinanceStore();
   useEffect(() => {
     void loadEntries();
-  }, [loadEntries]);
+    void loadYesterdayExpense(); // きのうの支出合計を自動取得（読み取りのみ・保存しない）
+  }, [loadEntries, loadYesterdayExpense]);
 
   const now = new Date();
 
@@ -37,10 +40,10 @@ export function TodayScreen() {
 
       <StatusCards entries={entries} />
 
-      {entries.length > 0 && (
+      {(entries.length > 0 || yesterdayExpense) && (
         <>
           <p className="caption section-heading">タイムライン</p>
-          <EntryList entries={entries} />
+          <EntryList entries={entries} financeDaily={yesterdayExpense} />
         </>
       )}
       {/* 空のときは静かに空のまま（催促文言は出さない） */}
