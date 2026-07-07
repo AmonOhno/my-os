@@ -36,6 +36,15 @@ src/
 └── types/       # 型定義のみ（ロジックを置かない）
 ```
 
+## 開発フロー — Issue 駆動開発
+
+ソース修正は必ず GitHub Issue を起点にする:
+
+1. **Issue がなければ先に作成する**。修正・機能追加の内容に対応する Issue が存在しない場合、`gh issue create` で作成してからソース修正に着手する（タイトルは既存 Issue にならい `【対象 / 種別】概要` 形式）。
+2. **最新の main から着手する**。作業前に `git switch main && git pull` で最新化し、そこから作業ブランチを切る。main に直接コミットしない。
+3. ブランチ名は `fix/<Issue番号>-<slug>` / `feat/<Issue番号>-<slug>` / `docs/<Issue番号>-<slug>`（asset-simulator と同じ規約）。
+4. コミットメッセージと PR に Issue 番号（`#<番号>`）を含め、PR 本文に `Closes #<番号>` を書いて Issue と紐づける。
+
 ## コーディング規約
 
 - `types/` に変換関数等のロジックを置かない（asset-simulator と同じルール）
