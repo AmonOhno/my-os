@@ -12,20 +12,25 @@
 
 補助画面として **エントリ詳細**（編集・削除・リンク作成の起点）と **設定**（Finance トークン・エクスポート/インポート）を持つ。
 
-## 2. 8つの領域（domain）
+## 2. 11の領域（domain）
 
 領域はフィルタであって壁ではない。1エントリが複数領域に属せる。
 
 | キー | 表示名 | 対象 |
 |------|--------|------|
 | `health` | Health | 身体の状態 |
-| `career` | Career | 仕事・スキル |
+| `mental` | Mental | 気分・ストレス |
+| `career` | Career | 仕事・スキル（個人開発などのプロジェクトを含む） |
+| `finance` | Finance | お金（既存アプリの読み取り表示のみ） |
 | `learning` | Learning | 学習・知識 |
 | `family` | Family | 家族・ライフイベント |
-| `finance` | Finance | お金（既存アプリの読み取り表示のみ） |
-| `projects` | Projects | 個人開発・アイデア |
-| `mental` | Mental | 気分・ストレス |
+| `social` | Social | 友人・人間関係 |
+| `hobby` | Hobby | 趣味・あそび |
 | `travel` | Travel | 旅・リフレッシュ |
+| `private` | Private | 自分だけの時間・プライベートな出来事 |
+| `living` | Living | 住まい・持ち物・生活環境 |
+
+旧 `projects`（個人開発・アイデア）は他領域と重なるため v2 で廃止し、既存エントリは `career` に付け替える（[schema.md](../database/schema.md)）。
 
 `finance` はエントリの領域チップとしても選べる（例:「大きな買い物をした」というメモ）。ただし金額データ自体は保存しない（[finance_integration.md](finance_integration.md)）。
 
