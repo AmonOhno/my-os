@@ -2,13 +2,16 @@
 
 export type Domain =
   | 'health'
+  | 'mental'
   | 'career'
+  | 'finance'
   | 'learning'
   | 'family'
-  | 'finance'
-  | 'projects'
-  | 'mental'
-  | 'travel';
+  | 'social'
+  | 'hobby'
+  | 'travel'
+  | 'private'
+  | 'living';
 
 export type EntryKind = 'note' | 'mood' | 'metric' | 'event';
 
@@ -51,22 +54,28 @@ export interface Review {
 
 export const DOMAINS: Domain[] = [
   'health',
+  'mental',
   'career',
+  'finance',
   'learning',
   'family',
-  'finance',
-  'projects',
-  'mental',
+  'social',
+  'hobby',
   'travel',
+  'private',
+  'living',
 ];
 
 export const DOMAIN_LABELS: Record<Domain, string> = {
   health: 'Health',
+  mental: 'Mental',
   career: 'Career',
+  finance: 'Finance',
   learning: 'Learning',
   family: 'Family',
-  finance: 'Finance',
-  projects: 'Projects',
-  mental: 'Mental',
+  social: 'Social',
+  hobby: 'Hobby',
   travel: 'Travel',
+  private: 'Private',
+  living: 'Living',
 };
