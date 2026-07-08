@@ -314,6 +314,95 @@ body {
   cursor: default;
 }
 
+/* つながり画面 */
+.month-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--space-unit) * 2);
+  margin-bottom: calc(var(--space-unit) * 4);
+}
+
+.month-switcher button {
+  min-width: 44px;
+  min-height: 44px;
+  background: none;
+  border: none;
+  color: var(--color-ink-muted);
+  font: var(--text-body);
+  cursor: pointer;
+}
+
+.month-switcher-label {
+  font: var(--text-body);
+  font-weight: 600;
+}
+
+.connection-map {
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  margin-bottom: calc(var(--space-unit) * 4);
+}
+
+.map-link {
+  stroke: var(--color-ink-muted);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.map-link-note {
+  font: var(--text-caption);
+  fill: var(--color-ink-muted);
+}
+
+.map-node-label {
+  font: var(--text-caption);
+  fill: var(--color-ink);
+}
+
+.link-form {
+  display: grid;
+  gap: calc(var(--space-unit) * 2);
+  margin-bottom: calc(var(--space-unit) * 5);
+}
+
+/* ふりかえりカード: 淡い warm 背景 */
+.review-card {
+  display: grid;
+  gap: calc(var(--space-unit) * 2);
+  background: var(--color-surface-warm);
+  border-radius: var(--radius-card);
+  padding: calc(var(--space-unit) * 4);
+}
+
+.review-body {
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: 44px;
+  text-align: left;
+  color: var(--color-ink);
+  font: var(--text-body);
+  white-space: pre-wrap;
+  cursor: pointer;
+}
+
+.review-card a {
+  color: var(--color-accent);
+}
+
+.review-start {
+  min-height: 44px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-chip);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font: var(--text-body);
+  cursor: pointer;
+}
+
 /* 領域チップ: 淡い背景 + 濃い文字（ベタ塗り禁止） */
 .domain-chip {
   display: inline-block;

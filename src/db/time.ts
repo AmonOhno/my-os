@@ -19,3 +19,9 @@ export function monthOf(date: Date = new Date()): string {
 export function dateOf(date: Date = new Date()): string {
   return `${monthOf(date)}-${String(date.getDate()).padStart(2, '0')}`;
 }
+
+// 'YYYY-MM' を delta ヶ月ずらす（月切替用）
+export function shiftMonth(month: string, delta: number): string {
+  const [y, m] = month.split('-').map(Number);
+  return monthOf(new Date(y, m - 1 + delta, 1));
+}

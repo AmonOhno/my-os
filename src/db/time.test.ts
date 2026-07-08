@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { dateOf, monthOf, nowIso } from './time';
+import { dateOf, monthOf, nowIso, shiftMonth } from './time';
 
 describe('nowIso', () => {
   it('ISO 8601 ローカル時刻 + オフセット形式で出力する', () => {
@@ -39,6 +39,18 @@ describe('monthOf', () => {
 
   it('12月も正しく扱う', () => {
     expect(monthOf(new Date(2025, 11, 31))).toBe('2025-12');
+  });
+});
+
+describe('shiftMonth', () => {
+  it('前後の月に移動する', () => {
+    expect(shiftMonth('2026-07', -1)).toBe('2026-06');
+    expect(shiftMonth('2026-07', 1)).toBe('2026-08');
+  });
+
+  it('年をまたぐ', () => {
+    expect(shiftMonth('2026-01', -1)).toBe('2025-12');
+    expect(shiftMonth('2025-12', 1)).toBe('2026-01');
   });
 });
 
