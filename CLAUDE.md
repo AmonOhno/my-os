@@ -2,7 +2,7 @@
 
 ## プロジェクト概要
 
-自分を理解するための、人生のOS。8つの領域（Health/Career/Learning/Family/Finance/Projects/Mental/Travel）の状態を「残す・見る・考える」個人用アプリ。利用者は開発者本人ひとり。
+自分を理解するための、人生のOS。11の領域（Health/Mental/Career/Finance/Learning/Family/Social/Hobby/Travel/Private/Living）の状態を「残す・見る・考える」個人用アプリ。利用者は開発者本人ひとり。
 
 **サーバーレスのローカルファーストPWA**。データは端末内 IndexedDB のみ、ホスティングは GitHub Pages。ランニングコストは0円で、これを崩す変更（サーバー・BaaS・有料API の導入）は行わない。
 
@@ -62,7 +62,7 @@ src/
 | ファイル | 内容 |
 |---------|------|
 | `docs/architecture/overview.md` | 技術スタック（0円構成）・ディレクトリ・データフロー |
-| `docs/feature/overview.md` | 機能一覧・画面遷移・8領域の定義 |
+| `docs/feature/overview.md` | 機能一覧・画面遷移・11領域の定義 |
 | `docs/feature/record.md` | 残す — 記録シート（エントリ4種） |
 | `docs/feature/today.md` | 見る — きょう画面 |
 | `docs/feature/connections.md` | 考える — つながり・月次ふりかえり |

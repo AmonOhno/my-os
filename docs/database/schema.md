@@ -25,9 +25,18 @@ export class MyOSDatabase extends Dexie {
       links: 'id, fromEntry, toEntry, createdAt',
       reviews: 'id, &month, createdAt',
     });
+    // v2: 領域再編。既存エントリの 'projects' を 'career' に付け替える
+    this.version(2).stores({ /* 同一 */ }).upgrade(/* src/db/db.ts 参照 */);
   }
 }
 ```
+
+### バージョン履歴
+
+| version | 変更 |
+|---------|------|
+| 1 | 初期スキーマ |
+| 2 | 領域再編（11領域化）。インデックスは変更なし。`projects` 付きエントリを `career` に付け替え（重複は除去・`updatedAt` は変更しない） |
 
 ## 3. 型定義
 
@@ -35,8 +44,8 @@ export class MyOSDatabase extends Dexie {
 // src/types/models.ts — 型のみ。ロジックを置かない
 
 export type Domain =
-  | 'health' | 'career' | 'learning' | 'family'
-  | 'finance' | 'projects' | 'mental' | 'travel';
+  | 'health' | 'mental' | 'career' | 'finance' | 'learning' | 'family'
+  | 'social' | 'hobby' | 'travel' | 'private' | 'living';
 
 export type EntryKind = 'note' | 'mood' | 'metric' | 'event';
 

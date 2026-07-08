@@ -14,3 +14,8 @@ export function nowIso(date: Date = new Date()): string {
 export function monthOf(date: Date = new Date()): string {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 }
+
+// 'YYYY-MM-DD'（端末ローカルタイムゾーン基準）
+export function dateOf(date: Date = new Date()): string {
+  return `${monthOf(date)}-${String(date.getDate()).padStart(2, '0')}`;
+}

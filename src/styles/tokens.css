@@ -11,13 +11,16 @@
 
   /* domain colors */
   --domain-health: #7e9070;
+  --domain-mental: #c97b5a;
   --domain-career: #a86f3f;
+  --domain-finance: #8a9b8e;
   --domain-learning: #6e86a0;
   --domain-family: #c08a8a;
-  --domain-finance: #8a9b8e;
-  --domain-projects: #8d7aa5;
-  --domain-mental: #c97b5a;
+  --domain-social: #a5788d;
+  --domain-hobby: #8d7aa5;
   --domain-travel: #5f8a8b;
+  --domain-private: #8f8574;
+  --domain-living: #9c9a6f;
 
   /* shape / spacing */
   --radius-card: 16px;

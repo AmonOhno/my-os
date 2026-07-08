@@ -57,7 +57,7 @@ export function SettingsScreen() {
         <p className="caption">Finance 連携（読み取りのみ・この端末にだけ保存）</p>
         <input
           className="field"
-          placeholder="API のURL（https://…）"
+          placeholder="API のURL（https://….supabase.co/functions/v1/myos）"
           value={baseUrl}
           onChange={(e) => setBaseUrl(e.target.value)}
         />

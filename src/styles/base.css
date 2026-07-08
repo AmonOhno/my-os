@@ -44,6 +44,21 @@ body {
   padding: calc(var(--space-unit) * 4);
 }
 
+/* Finance 領域ビュー: カテゴリ別内訳（数字を眺めるだけ・グラフなし） */
+.finance-category-row {
+  display: flex;
+  justify-content: space-between;
+  margin: calc(var(--space-unit) * 2) 0 0;
+}
+
+.retry-link {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
 /* 下部タブバー */
 .tab-bar {
   position: fixed;
