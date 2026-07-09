@@ -20,6 +20,7 @@ MyOS の設計ドキュメント一覧です。
 | [feature/today.md](feature/today.md) | 見る — きょう画面（状態カード・タイムライン） |
 | [feature/connections.md](feature/connections.md) | 考える — つながり画面（リンク・マップ・月次ふりかえり） |
 | [feature/finance_integration.md](feature/finance_integration.md) | Finance — 既存家計アプリとの読み取り専用連携 |
+| [feature/training_integration.md](feature/training_integration.md) | My training — トレーニングアプリとの読み取り専用連携 |
 
 ## UI設計
 
@@ -37,4 +38,4 @@ MyOS の設計ドキュメント一覧です。
 
 - **コスト0円** — サーバー・DB・有料APIを一切持たない。静的ホスティング + 端末内ストレージで完結する。
 - **「管理」ではなく「理解」** — ストリーク・達成率・グラフによる圧をかけない。要件定義書 §2 を最上位の判断基準とする。
-- **今は決めないこと**（要件定義書 §6）には先回りしない。AI・KPI・スコアリング・通知・Finance以外の外部連携は設計しない。
+- **今は決めないこと**（要件定義書 §6）には先回りしない。AI・KPI・スコアリング・通知は設計しない。外部連携は既存アプリ（asset-simulator / My training）への読み取り専用ポーリングに限る（Issue #9）。

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getFinanceConfig, setFinanceConfig } from '../finance/client';
+import { getTrainingConfig, setTrainingConfig } from '../training/client';
 import { exportData, exportFileName, importData } from '../db/exportImport';
 import { useEntriesStore } from '../stores/entriesStore';
 
@@ -18,12 +19,20 @@ export function SettingsScreen() {
   const initial = getFinanceConfig();
   const [baseUrl, setBaseUrl] = useState(initial.baseUrl);
   const [token, setToken] = useState(initial.token);
+  const initialTraining = getTrainingConfig();
+  const [trainingBaseUrl, setTrainingBaseUrl] = useState(initialTraining.baseUrl);
+  const [trainingToken, setTrainingToken] = useState(initialTraining.token);
   const [message, setMessage] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const loadEntries = useEntriesStore((s) => s.loadEntries);
 
   const saveFinance = () => {
     setFinanceConfig(baseUrl, token);
+    setMessage(null);
+  };
+
+  const saveTraining = () => {
+    setTrainingConfig(trainingBaseUrl, trainingToken);
     setMessage(null);
   };
 
@@ -69,6 +78,26 @@ export function SettingsScreen() {
           onChange={(e) => setToken(e.target.value)}
         />
         <button type="button" className="save-button" onClick={saveFinance}>
+          保存する
+        </button>
+      </section>
+
+      <section className="card settings-section">
+        <p className="caption">My training 連携（読み取りのみ・この端末にだけ保存）</p>
+        <input
+          className="field"
+          placeholder="API のURL"
+          value={trainingBaseUrl}
+          onChange={(e) => setTrainingBaseUrl(e.target.value)}
+        />
+        <input
+          className="field"
+          type="password"
+          placeholder="APIトークン"
+          value={trainingToken}
+          onChange={(e) => setTrainingToken(e.target.value)}
+        />
+        <button type="button" className="save-button" onClick={saveTraining}>
           保存する
         </button>
       </section>
