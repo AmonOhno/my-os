@@ -83,7 +83,15 @@ my-os/
 - バックアップは設定画面から **JSON エクスポート/インポート**（形式は [database/schema.md](../database/schema.md) §5）。
   IndexedDB はブラウザデータ削除で消えるため、月次ふりかえりのタイミングでエクスポートを促す一文を出す（通知はしない — 要件定義書 §6）。
 
-## 7. 非対応と将来拡張
+## 7. iOS 版（Capacitor ラッパー）
+
+同じ Web アプリを Capacitor（SPM）で包んだ iOS 版が `ios/` にある。WebView が読み込むのは `ios/App/App/public`（gitignore 対象）にコピーされたビルド済みアセット。
+
+- Xcode の App ターゲットに **Run Script「Build Web Assets」** があり、ビルドのたびに `npm run build` と `npx cap copy ios` を自動実行して最新化する（node_modules がなければ `npm install` も行う）。手動での同期は不要。
+- Capacitor のプラグイン構成や `capacitor.config.ts` を変えたときだけ、手動で `npx cap sync ios` を実行する（`copy` はアセットと設定のコピーのみで、ネイティブプロジェクトは更新しないため）。
+- Finance API との通信は CORS 回避のため CapacitorHttp を使う（[feature/finance_integration.md](../feature/finance_integration.md) §6）。
+
+## 8. 非対応と将来拡張
 
 | 項目 | 現在 | 将来必要になったら |
 |------|------|------------------|
