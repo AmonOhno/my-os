@@ -32,6 +32,7 @@ src/
 ├── db/          # Dexie スキーマ・リポジトリ関数
 ├── stores/      # Zustand ストア（DBアクセスは必ずストア経由）
 ├── finance/     # 家計アプリAPIクライアント（GET のみ・保存禁止）
+├── training/    # My training APIクライアント（GET のみ・保存禁止）
 ├── styles/      # tokens.css・base.css
 └── types/       # 型定義のみ（ロジックを置かない）
 ```
@@ -53,7 +54,7 @@ src/
 - ID 規約: エントリ `ent_<uuid>` / リンク `lnk_<uuid>` / ふりかえり `rev_<uuid>`
 - 日時は ISO 8601 文字列（ローカル時刻 + オフセット）で保存
 - 色・角丸・余白は `src/styles/tokens.css` の CSS 変数のみ使用。ハードコード禁止
-- Finance API トークンは localStorage のみ。エクスポートJSONやログに含めない
+- Finance / My training の API トークンは localStorage のみ。エクスポートJSONやログに含めない
 
 ## ドキュメント一覧（docs/）
 
@@ -67,6 +68,7 @@ src/
 | `docs/feature/today.md` | 見る — きょう画面 |
 | `docs/feature/connections.md` | 考える — つながり・月次ふりかえり |
 | `docs/feature/finance_integration.md` | Finance 読み取り専用連携 |
+| `docs/feature/training_integration.md` | My training 読み取り専用連携 |
 | `docs/ui/specification.md` | 画面・コンポーネント・デザイントークン |
 | `docs/database/schema.md` | Dexie スキーマ・ID規約・エクスポート形式 |
 

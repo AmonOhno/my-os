@@ -44,8 +44,10 @@ body {
   padding: calc(var(--space-unit) * 4);
 }
 
-/* Finance 領域ビュー: カテゴリ別内訳（数字を眺めるだけ・グラフなし） */
-.finance-category-row {
+/* 領域ビューの連携データ行: Finance カテゴリ別内訳 / Health トレーニング一覧
+   （数字を眺めるだけ・グラフなし） */
+.finance-category-row,
+.training-session-row {
   display: flex;
   justify-content: space-between;
   margin: calc(var(--space-unit) * 2) 0 0;
