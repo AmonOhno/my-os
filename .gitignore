@@ -4,3 +4,8 @@ dev-dist/
 *.local
 .DS_Store
 supabase/.temp/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/

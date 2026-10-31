@@ -46,6 +46,13 @@ src/
 3. ブランチ名は `fix/<Issue番号>-<slug>` / `feat/<Issue番号>-<slug>` / `docs/<Issue番号>-<slug>`（asset-simulator と同じ規約）。
 4. コミットメッセージと PR に Issue 番号（`#<番号>`）を含め、PR 本文に `Closes #<番号>` を書いて Issue と紐づける。
 
+## テスト・CI
+
+- ユニット: `npm run test:unit`（Vitest、`src/**/*.test.ts`）／E2E: `npm run test:e2e`（Playwright、`e2e/`。先に build が走る）
+- PR では `.github/workflows/e2e.yml` がユニット + E2E をリトライなしで実行し、`claude-code-review.yml` が公式 code-review プラグインでレビューする
+- テストの skip・無効化・リトライで緑にしない。画面フローを変えたら `e2e/smoke.spec.ts` も更新する
+- 詳細: [docs/testing/ci.md](docs/testing/ci.md)
+
 ## コーディング規約
 
 - `types/` に変換関数等のロジックを置かない（asset-simulator と同じルール）
@@ -71,5 +78,6 @@ src/
 | `docs/feature/training_integration.md` | My training 読み取り専用連携 |
 | `docs/ui/specification.md` | 画面・コンポーネント・デザイントークン |
 | `docs/database/schema.md` | Dexie スキーマ・ID規約・エクスポート形式 |
+| `docs/testing/ci.md` | GitHub Actions（E2E・Claude Code Review）・必要な Secrets・ブランチ保護 |
 
 機能を追加・変更するときは、対応する docs を同じ変更で更新すること。

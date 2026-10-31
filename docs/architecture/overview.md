@@ -33,6 +33,7 @@ MyOS は「人生を構成する情報を一つの場所に集め、自分の状
 | ルーティング | React Router（HashRouter） | GitHub Pages はSPAフォールバックがないため hash ルーティングにする |
 | つながりマップ描画 | SVG + d3-force | ノード数は個人利用規模（数十〜数百）なので force layout で十分 |
 | テスト | Vitest + Testing Library | Vite と同系。DB層は fake-indexeddb でテスト |
+| E2E / CI | Playwright + GitHub Actions | PR ごとにユニット + スモーク E2E をリトライなしで実行（無料枠）。詳細は [testing/ci.md](../testing/ci.md) |
 | Lint/Format | ESLint + Prettier | 標準構成 |
 
 ### 採用しないもの（と理由）

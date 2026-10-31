@@ -34,6 +34,12 @@ MyOS の設計ドキュメント一覧です。
 |---------|------|
 | [database/schema.md](database/schema.md) | ローカルDB（IndexedDB/Dexie）スキーマ・ID規約・エクスポート形式 |
 
+## テスト・CI
+
+| ファイル | 内容 |
+|---------|------|
+| [testing/ci.md](testing/ci.md) | GitHub Actions（E2E・Claude Code Review）・ローカル実行・対象外・手動設定 |
+
 ## 設計の前提
 
 - **コスト0円** — サーバー・DB・有料APIを一切持たない。静的ホスティング + 端末内ストレージで完結する。
