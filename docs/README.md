@@ -9,6 +9,7 @@ MyOS の設計ドキュメント一覧です。
 
 | ファイル | 内容 |
 |---------|------|
+| [architecture.md](architecture.md) | C4モデル（System Context / Container / Component）によるアーキテクチャ図・データフロー |
 | [architecture/overview.md](architecture/overview.md) | システム概要・技術スタック（0円構成）・ディレクトリ構成・データフロー |
 
 ## 機能設計
